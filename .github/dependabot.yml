@@ -5,10 +5,10 @@ updates:
     schedule:
       interval: weekly
     reviewers:
-      - toshimaru
+      - ashutosham2002
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
     reviewers:
-      - toshimaru
+      - ashutosham2002
