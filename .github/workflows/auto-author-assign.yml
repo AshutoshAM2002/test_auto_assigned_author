@@ -1,0 +1,17 @@
+name: Auto Author Assign
+
+permissions:
+  pull-requests: write
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
+jobs:
+  assign-author:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: toshimaru/auto-author-assign@v1.6.2
+        with: 
+          repo-token: ${{ secrets.TOKEN_GITHUB }}
+
