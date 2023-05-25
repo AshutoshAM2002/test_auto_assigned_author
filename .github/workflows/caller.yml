@@ -1,0 +1,16 @@
+name: workflow_dispatch- SST APP
+permissions:
+  pull-requests: write
+
+on:
+  # push:
+  pull_request:
+    types: [opened, reopened]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  assign-author:
+    uses: AshutoshAM2002/test_auto_assigned_author/.github/workflows/auto-author-assign.yml@main
+    secrets:
+      TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}

@@ -1,17 +1,21 @@
-name: Auto Author Assign
-
-permissions:
-  pull-requests: write
+name: Auto Author 
 
 on:
-  workflow_dispatch:
-  pull_request:
-    types: [opened, reopened]
+  workflow_call:
+    secrets:
+      TOKEN_GITHUB:
+        description: 'github token'
+        required: true
+
 jobs:
-  assign-author:
+  assigned-author:
+    name: auto author
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout git repo
+        uses: actions/checkout@v3
+
       - uses: toshimaru/auto-author-assign@v1.6.2
         with: 
           repo-token: ${{ secrets.TOKEN_GITHUB }}
-
